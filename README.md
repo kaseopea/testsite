@@ -20,8 +20,6 @@
 * Proxy
 
 ## Additional Features Used
-*  **CSS Variables**
-https://caniuse.com/#feat=css-variables
-
-*  **SVG SMIL animation**
-https://caniuse.com/#feat=svg-smil
+*  **CSS Variables** https://caniuse.com/#feat=css-variables
+*  **Resource Hints: dns-prefetch** https://caniuse.com/#feat=link-rel-dns-prefetch
+*  **SVG SMIL animation** https://caniuse.com/#feat=svg-smil

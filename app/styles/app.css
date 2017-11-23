@@ -58,12 +58,12 @@ html {
 }
 
 /* Loader */
-#main .loader {
+#loader {
     text-align: center;
     width: var(--loader-size);
     margin: 0 auto;
 }
-#main .loader-svg {
+#loader .loader-svg {
     width: var(--loader-size);
 }
 
