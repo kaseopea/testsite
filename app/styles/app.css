@@ -4,13 +4,16 @@
 :root {
     --main-background-color: #f5f7f8;
 
+    --header-height: 85px;
     --header-background-color: white;
     --logo-text-color: #283646;
     --logo-text-color-alt: #e54236;
     --logo-background-alt: #efbc11;
-    --logo-text-shadow: 4px 4px 0px;
+    --logo-text-shadow: 2px 2px 0px;
 
     --loader-size: 5rem;
+
+	--aside-width: 250px;
 }
 
 /** ************************************************************************************************************
@@ -21,8 +24,6 @@ html {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
-
-
 }
 body {
     margin: 0;
@@ -44,16 +45,21 @@ body {
  */
 #header {
     background-color: var(--header-background-color);
+	flex-basis: 85px;
     text-align: center;
-    padding: 2rem 0
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	width: 100%;
+	height: var(--header-height);
 }
 .logo {
     font-family: 'Permanent Marker', cursive;
-    font-size: 3.5rem;
+    font-size: 2rem;
     color: var(--logo-text-color);
     text-shadow: var(--logo-text-shadow) rgba(235, 235, 235, 1);
 }
-
 .logo-alt {
     display: inline-block;
     margin: 0 3px 0 8px;
@@ -68,23 +74,38 @@ body {
     Main styles
  */
 #main {
-
+	margin-left: var(--aside-width);
+	padding-top: 2em;
 }
 
+#mainContent {
+	padding: 0 2em 2em 2em;
+}
+#sources {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: var(--aside-width);
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 5px 0 15px 0 rgba(0,0,0,0.1);
 
+}
+#sources-content {
+	height: 100%;
+	overflow: auto;
+}
 .sources-list {
-    width: 90%;
-    margin: 1rem auto;
     list-style: none;
     padding: 0;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    margin: 0;
 }
 .sources-list li {
-    text-align: center;
-    margin: 5px 10px;
+    margin: 5px 0;
+	padding: .5em 0;
 	display: flex;
+	justify-content: flex-start;
 	align-items: center;
 	cursor: pointer;
 }
@@ -101,8 +122,8 @@ body {
     width: 16px;
     height: 16px;
     display: block;
-    margin: 0 auto;
-    padding: 10px
+    padding: 10px;
+	overflow: hidden;
 }
 
 /** ************************************************************************************************************
@@ -111,12 +132,15 @@ body {
 #footer {
     position: fixed;
     bottom: 5px;
-    left: 5px;
+    right: 20px;
+	background-color: white;
 }
 #footer .copyright {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     text-align: center;
     color: rgb(150, 150, 150);
+	margin: 0;
+	padding: 5px;
 }
 
 #footer .copyright  a {

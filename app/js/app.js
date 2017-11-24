@@ -3,7 +3,7 @@ if (!NewsClient) {
 	throw new Error(CLIENT_MESSAGES.error.noNewsClientDefined);
 }
 const ELEMENTS = {
-	sourcesContent: document.getElementById('sources'),
+	sourcesContent: document.getElementById('sources-content'),
 	loader: document.getElementById('loader'),
 	mainContent: document.getElementById('mainContent')
 };

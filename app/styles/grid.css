@@ -2,12 +2,8 @@
     News Grid Styles
  */
 .news-grid {
-  width: 90%;
-  max-width: 1240px;
-  margin: 0 auto;
-
+  width: 100%;
   display: grid;
-
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-gap: 20px;
@@ -21,8 +17,8 @@
   .item-1 {
   grid-column: 1/ span 2;
   }
-  .item-1 h1 {
-    font-size: 30px;
+  .item-1 .card h1 {
+    font-size: 40px;
   }
 }
 

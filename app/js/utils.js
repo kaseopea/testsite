@@ -8,7 +8,7 @@ const showElement = (element) => {
 
 const getSourcesHtml = (data) => {
 	let sources = data.map((source) => {
-		return `<li>
+		return `<li data-source-id="${source.id}">
                 <img
                     data-source-id="${source.id}"
                     alt="${source.name}"
