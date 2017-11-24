@@ -26,10 +26,10 @@ newsClient.getNewsSources().then((data) => {
 	ELEMENTS.sourcesContent.addEventListener('click', (ev) => {
 		let sourceId = (ev.target.dataset && ev.target.dataset.sourceId) ? ev.target.dataset.sourceId : null;
 
-		// show loader
-		UTILS.showElement(ELEMENTS.loader);
-
 		if (sourceId) {
+            ELEMENTS.mainContent.innerHTML = '';
+		    UTILS.showElement(ELEMENTS.loader);
+
 			newsClient.getNewsBySource(sourceId).then((data) => {
 				// hide loader
 				UTILS.hideElement(ELEMENTS.loader);

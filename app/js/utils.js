@@ -8,19 +8,34 @@ const showElement = (element) => {
 
 const getSourcesHtml = (data) => {
 	let sources = data.map((source) => {
-		return `<li><a data-source-id="${source.id}">${source.name}</a></li>`;
+        //https://icons.better-idea.org/icon?url=http://abcnews.go.com&size=70..120..200
+		return `<li>
+                <img
+                    data-source-id="${source.id}"
+                    alt="${source.name}"
+                    class="icon"
+                    src="https://icons.better-idea.org/icon?url=${source.url}&amp;size=32..50..100">
+                <a data-source-id="${source.id}">${source.name}</a>
+            </li>`;
 	});
-	return `<ul>${sources.join('')}</ul>`;
+	return `<ul class="sources-list">${sources.join('')}</ul>`;
 }
 
 const getNewsHtml = (data) => {
-	let news = data.map((newsOne) => {
-		return `<div>
-			<img src="${newsOne.urlToImage}" />
-			<h3>${newsOne.title}</h3></div>`;
+	let news = data.map((newsOne, index) => {
+		return `
+    <div class="item-${++index}">
+          <a href="${newsOne.url}" target="_blank" class="card">
+            <div class="thumb" style="background-image: url(${newsOne.urlToImage});"></div>
+            <article>
+              <h1>${newsOne.title}</h1>
+              <span>${newsOne.author}</span>
+            </article>
+          </a>
+    </div>`;
 	});
 
-	return news.join('');
+	return `<div class="news-grid">${news.join('')}</div`;
 }
 
 const UTILS = (() => {

@@ -1,6 +1,6 @@
 const API_URLS = {
 	sources: {
-		url: 'https://newsapi.org/v2/sources?language=ru',
+		url: 'https://newsapi.org/v2/sources?language=en',
 		params: {
 			language: 'ru'
 		}

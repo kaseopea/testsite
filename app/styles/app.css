@@ -2,8 +2,12 @@
     APP CSS Variables
  */
 :root {
-    --logo-text-color: black;
-    --logo-text-color-alt: darkred;
+    --main-background-color: #f5f7f8;
+
+    --header-background-color: white;
+    --logo-text-color: #283646;
+    --logo-text-color-alt: #e54236;
+    --logo-background-alt: #efbc11;
     --logo-text-shadow: 4px 4px 0px;
 
     --loader-size: 5rem;
@@ -12,49 +16,17 @@
 /** ************************************************************************************************************
     General styles
  */
-
-body, html {
-
-}
-
 html {
+    background-color: var(--main-background-color);
     font-family: 'Lato', sans-serif;
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+
 
 }
-/** ************************************************************************************************************
-    Header styles
- */
-#header {
-    text-align: center;
-}
-.logo {
-    font-family: 'Permanent Marker', cursive;
-    font-size: 5rem;
-    color: var(--logo-text-color);
-    text-shadow: var(--logo-text-shadow) rgba(235, 235, 235, 1);
-}
-
-.logo-alt {
-    display: inline-block;
-    margin: 0 3px 0 8px;
-    padding: 3px 5px;
-    background-color: yellow;
-    color: var(--logo-text-color-alt);
-    text-shadow: var(--logo-text-shadow) rgba(255, 255, 255, 1);
-    border-radius: 100%;
-}
-.logo-beta {
-    color: #ccc;
-    vertical-align: super;
-    font-size: 70%;
-
-}
-/** ************************************************************************************************************
-    Main styles
- */
-#main {
-
+body {
+    margin: 0;
+    padding: 0;
 }
 
 /* Loader */
@@ -68,10 +40,70 @@ html {
 }
 
 /** ************************************************************************************************************
+    Header styles
+ */
+#header {
+    background-color: var(--header-background-color);
+    text-align: center;
+    padding: 2rem 0
+}
+.logo {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3.5rem;
+    color: var(--logo-text-color);
+    text-shadow: var(--logo-text-shadow) rgba(235, 235, 235, 1);
+}
+
+.logo-alt {
+    display: inline-block;
+    margin: 0 3px 0 8px;
+    padding: 3px 5px;
+    background-color: var(--logo-background-alt);
+    color: var(--logo-text-color-alt);
+    text-shadow: var(--logo-text-shadow) rgba(255, 255, 255, 1);
+    border-radius: 100%;
+}
+
+/** ************************************************************************************************************
+    Main styles
+ */
+#main {
+
+}
+
+
+.sources-list {
+    width: 90%;
+    margin: 1rem auto;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.sources-list li {
+    text-align: center;
+    margin: 5px 10px;
+}
+
+.sources-list li .icon {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px
+}
+
+/** ************************************************************************************************************
     Footer styles
  */
-
+#footer {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+}
 #footer .copyright {
+    font-size: 0.9rem;
     text-align: center;
     color: rgb(150, 150, 150);
 }
