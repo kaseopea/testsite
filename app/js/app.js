@@ -16,11 +16,9 @@ newsClient.getNewsSources().then((data) => {
 	// Hide Loader Element
 	UTILS.hideElement(ELEMENTS.loader);
 
-	console.log('SOURCES');
-	console.log(data);
-	console.log('\n');
-
 	ELEMENTS.sourcesContent.innerHTML = UTILS.getSourcesHtml(data);
+
+	//load random news
 
 	// add EventListener for sources click
 	ELEMENTS.sourcesContent.addEventListener('click', (ev) => {
@@ -34,19 +32,15 @@ newsClient.getNewsSources().then((data) => {
 				// hide loader
 				UTILS.hideElement(ELEMENTS.loader);
 
-				//data should be already in json format
-				console.log('NEWS');
-				console.log(data);
-				console.log('\n');
-
 				ELEMENTS.mainContent.innerHTML = UTILS.getNewsHtml(data);
 			})
 			.catch((err) => {
+				// show UI error message - no news loaded for source
 				console.warn(err);
 			});
 		}
 	})
 })
 	.catch((err) => {
-		//error handling
+		// show UI error message - no sources loaded
 	});

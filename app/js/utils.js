@@ -8,13 +8,12 @@ const showElement = (element) => {
 
 const getSourcesHtml = (data) => {
 	let sources = data.map((source) => {
-        //https://icons.better-idea.org/icon?url=http://abcnews.go.com&size=70..120..200
 		return `<li>
                 <img
                     data-source-id="${source.id}"
                     alt="${source.name}"
                     class="icon"
-                    src="https://icons.better-idea.org/icon?url=${source.url}&amp;size=32..50..100">
+                    src="https://icons.better-idea.org/icon?url=${source.url}&amp;size=16..32..48">
                 <a data-source-id="${source.id}">${source.name}</a>
             </li>`;
 	});
@@ -38,11 +37,9 @@ const getNewsHtml = (data) => {
 	return `<div class="news-grid">${news.join('')}</div`;
 }
 
-const UTILS = (() => {
-	return {
+const UTILS = (() => ({
 		hideElement,
 		showElement,
 		getSourcesHtml,
 		getNewsHtml
-	}
-})();
+	}))();
