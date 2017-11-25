@@ -1,8 +1,8 @@
 const API_URLS = {
 	sources: {
-		url: 'https://newsapi.org/v2/sources?language=en',
+		url: 'https://newsapi.org/v2/sources',
 		params: {
-			language: 'ru'
+			language: 'en'
 		}
 	},
 	news: {
@@ -12,6 +12,8 @@ const API_URLS = {
 
 const CLIENT_MESSAGES = {
 	error: {
-		noNewsClientDefined: 'NewsClient lib is not loaded('
+		noNewsClientDefined: 'NewsClient lib is not loaded(',
+		noSourcesLoaded: 'No sources avaliable. Try again later',
+		noNewsLoaded: 'No sources avaliable. Try again later'
 	}
 };

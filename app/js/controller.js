@@ -1,11 +1,3 @@
-const hideElement = (element) => {
-	element.style.display = 'none';
-}
-
-const showElement = (element) => {
-	element.style.display = 'block';
-}
-
 const getSourcesHtml = (data) => {
 	let sources = data.map((source) => {
 		return `<li data-source-id="${source.id}">
@@ -19,7 +11,6 @@ const getSourcesHtml = (data) => {
 	});
 	return `<ul class="sources-list">${sources.join('')}</ul>`;
 }
-
 const getNewsHtml = (data) => {
 	let news = data.map((newsOne, index) => {
 		return `
@@ -33,13 +24,10 @@ const getNewsHtml = (data) => {
           </a>
     </div>`;
 	});
-
 	return `<div class="news-grid">${news.join('')}</div`;
 }
 
-const UTILS = (() => ({
-		hideElement,
-		showElement,
+const CONTROLLER = (() => ({
 		getSourcesHtml,
 		getNewsHtml
 	}))();

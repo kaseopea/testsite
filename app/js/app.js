@@ -2,45 +2,58 @@
 if (!NewsClient) {
 	throw new Error(CLIENT_MESSAGES.error.noNewsClientDefined);
 }
+
 const ELEMENTS = {
 	sourcesContent: document.getElementById('sources-content'),
 	loader: document.getElementById('loader'),
-	mainContent: document.getElementById('mainContent')
+	mainContent: document.getElementById('main-content'),
+	errorMessage: document.getElementById('error-message')
 };
 
 const newsClient = new NewsClient.NewsAPIClient(NEWSAPI_API_KEY);
+const appView = new VIEW.Renderer();
 
+
+// Load default random news
+let query = DEFAULT_KEYWORS[Math.floor(Math.random() * DEFAULT_KEYWORS.length)];
+newsClient.getNewsByParam('q', query).then((data) => {
+	appView.hideElement(ELEMENTS.loader);
+	appView.setView(ELEMENTS.mainContent, CONTROLLER.getNewsHtml(data));
+})
+.catch((err) => {
+	appView.hideElement(ELEMENTS.loader);
+	appView.showElement(ELEMENTS.errorMessage);
+	appView.setView(ELEMENTS.errorMessage, CLIENT_MESSAGES.error.noNewsLoaded);
+});
 
 // Get News Sources
 newsClient.getNewsSources().then((data) => {
 	// Hide Loader Element
-	UTILS.hideElement(ELEMENTS.loader);
-
-	ELEMENTS.sourcesContent.innerHTML = UTILS.getSourcesHtml(data);
-
-	//load random news
+	appView.hideElement(ELEMENTS.loader);
+	appView.setView(ELEMENTS.sourcesContent, CONTROLLER.getSourcesHtml(data));
 
 	// add EventListener for sources click
 	ELEMENTS.sourcesContent.addEventListener('click', (ev) => {
 		let sourceId = (ev.target.dataset && ev.target.dataset.sourceId) ? ev.target.dataset.sourceId : null;
 
 		if (sourceId) {
-            ELEMENTS.mainContent.innerHTML = '';
-		    UTILS.showElement(ELEMENTS.loader);
+			appView.resetView(ELEMENTS.mainContent);
+		    appView.showElement(ELEMENTS.loader);
 
-			newsClient.getNewsBySource(sourceId).then((data) => {
-				// hide loader
-				UTILS.hideElement(ELEMENTS.loader);
-
-				ELEMENTS.mainContent.innerHTML = UTILS.getNewsHtml(data);
+			newsClient.getNewsByParam('sources', sourceId).then((data) => {
+				appView.hideElement(ELEMENTS.loader);
+				appView.setView(ELEMENTS.mainContent, CONTROLLER.getNewsHtml(data));
 			})
 			.catch((err) => {
-				// show UI error message - no news loaded for source
-				console.warn(err);
+				appView.hideElement(ELEMENTS.loader);
+				appView.showElement(ELEMENTS.errorMessage);
+				appView.setView(ELEMENTS.errorMessage, CLIENT_MESSAGES.error.noNewsLoaded);
 			});
 		}
 	})
 })
 	.catch((err) => {
-		// show UI error message - no sources loaded
+		appView.hideElement(ELEMENTS.loader);
+		appView.showElement(ELEMENTS.errorMessage);
+		appView.setView(ELEMENTS.errorMessage, CLIENT_MESSAGES.error.noSourcesLoaded);
 	});

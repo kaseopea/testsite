@@ -14,6 +14,9 @@
     --loader-size: 5rem;
 
 	--aside-width: 250px;
+
+	--erroe-message-background: #e74c3c;
+	--erroe-message-text: white;
 }
 
 /** ************************************************************************************************************
@@ -40,6 +43,15 @@ body {
     width: var(--loader-size);
 }
 
+#error-message {
+	display: none;
+	width: 90%;
+	margin: 0 auto;
+	background-color: var(--erroe-message-background);
+	color: var(--erroe-message-text);
+	padding: 1em 2em;
+	border-radius: 5px;
+}
 /** ************************************************************************************************************
     Header styles
  */
@@ -78,7 +90,7 @@ body {
 	padding-top: 2em;
 }
 
-#mainContent {
+#main-content {
 	padding: 0 2em 2em 2em;
 }
 #sources {
