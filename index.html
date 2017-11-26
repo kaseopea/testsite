@@ -13,13 +13,11 @@
     <link rel='dns-prefetch' href='//fonts.googleapis.com'>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:300,400,700,900" rel="stylesheet">
 
     <!-- App styles -->
     <link rel="stylesheet" href="app/styles/app.css">
     <link rel="stylesheet" href="app/styles/grid.css">
-
 </head>
 <body>
 
@@ -27,6 +25,7 @@
 
 <aside id="sources">
 	<header id="header">
+        <div class="menu-button"><img src="app/assets/menu-button.svg" class="icon"></div>
 		<div class="logo">News<span class="logo-alt">Hole</span></div>
 	</header>
 	<div id="sources-content"></div>
@@ -34,7 +33,8 @@
 
 <main id="main">
     <div id="loader"><img src="app/assets/loader.svg" class="loader-svg" alt="Loading..."></div>
-    <div id="mainContent"></div>
+    <div id="main-content"></div>
+    <div class="error-message"></div>
 </main>
 
 <footer id="footer">
