@@ -5,17 +5,20 @@ class NewsAPIClient {
 
 	getNewsSources() {
 		return new Promise((resolve, reject) => {
-			// todo: generate correct ulr with params
-			fetch(`${API_URLS.sources.url}&${this.apiKeyParam()}`)
+			let {url, params = {}} = API_URLS.sources;
+
+			fetch(this.getUrl(url, params))
 			.then((response) => response.json())
 			.then((data) => resolve(data.sources))
 			.catch((err) => reject(err.message));
 		});
 	}
-	getNewsBySource(sourceId) {
+	getNewsByParam(param, value) {
 		return new Promise((resolve, reject) => {
-			// todo: generate correct ulr with params
-			fetch(`${API_URLS.news.url}?sources=${sourceId}${this.apiKeyParam()}`)
+			let {url, params = {}} = API_URLS.news;
+			fetch(this.getUrl(url, Object.assign({}, params, {
+				[param]: value
+			})))
 			.then((response) => response.json())
 			.then((data) => resolve(data.articles))
 			.catch((err) => reject(err.message));
@@ -23,8 +26,13 @@ class NewsAPIClient {
 	}
 
 	/* UTILS */
-	apiKeyParam() {
-		return `&apiKey=${this.apikey}`;
+	getUrl(url, params) {
+		let paramsObj = [];
+		params.apikey = this.apikey;
+		for (let key in params) {
+			paramsObj.push(`${key}=${encodeURIComponent(params[key])}`);
+		}
+		return `${url}?${paramsObj.join('&')}`;
 	}
 }
 const NewsClient = (() => ({NewsAPIClient}))();

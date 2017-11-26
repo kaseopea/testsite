@@ -7,17 +7,12 @@
 * Let and Const
 * Assignment Destructing
 * Template Literals
-* Object Literal Features(property value shorthands, computed property names, method definitions)
-* Arrow function, defaults and rest parameters, Spread operator
+* Object Literal Features
+* Arrow function
 * Classes
 * Array 
-* Set, Map, WeakSet, WeakMap 
 * Promise
 * fetch
-* Symbol
-* Iterator
-* Generator 
-* Proxy
 
 ## Additional Features Used
 *  **CSS Variables** https://caniuse.com/#feat=css-variables

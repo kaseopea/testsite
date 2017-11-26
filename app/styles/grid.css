@@ -1,13 +1,13 @@
+:root {
+  --date-label-background: #c0392b;
+}
+
 /** ************************************************************************************************************
     News Grid Styles
  */
 .news-grid {
-  width: 90%;
-  max-width: 1240px;
-  margin: 0 auto;
-
+  width: 100%;
   display: grid;
-
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-gap: 20px;
@@ -19,10 +19,10 @@
     grid-template-columns: 1fr 1fr;
   }
   .item-1 {
-  grid-column: 1/ span 2;
+    grid-column: 1/ span 2;
   }
-  .item-1 h1 {
-    font-size: 30px;
+  .item-1 .card h1 {
+    font-size: 40px;
   }
 }
 
@@ -69,24 +69,50 @@
   background-size: cover;
   background-position: center center;
 }
-
-.card p {
-  flex: 1; /* make p grow to fill available space*/
+.card .date {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--date-label-background);
+  color: white;
+  width: 55px;
+  height: 55px;
+  padding: 10px 0 12.5px 0;
+  border-radius: 100%;
+  font-weight: 700;
+  text-align: center;
+  box-sizing: border-box;
+}
+.card .date .day {
+  font-size: 1.2rem;
+}
+.card .date .month {
+  font-size: .7rem;
+  text-transform: uppercase;
+}
+.card article p {
+  flex: 1; /* make p grow to fill available space */
   line-height: 1.4;
 }
 
 /* typography */
-.card h1 {
+.card article h1 {
   font-size: 20px;
+  font-weight: 700;
   margin: 0;
   color: #333;
 }
 
-.card span {
+.card article span {
   font-size: 12px;
   font-weight: bold;
   color: #999;
   text-transform: uppercase;
   letter-spacing: .05em;
   margin: 2em 0 0 0;
+}
+
+/* typography fix */
+.news-grid .card:nth-child(1) article h1 {
+  line-height: 1; 
 }
